@@ -5,6 +5,5 @@ require 'vite_ruby'
 
 require 'jekyll/vite/version'
 require 'jekyll/vite/tags'
-
-module Jekyll::Vite
-end
+require 'jekyll/vite/generator'
+require 'jekyll/vite/proxy'
