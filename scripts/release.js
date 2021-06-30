@@ -11,6 +11,7 @@ const semver = require('semver')
 const chalk = require('chalk')
 const { prompt } = require('enquirer')
 
+let targetVersion = args._[1]
 const pkg = rubyPackage()
 
 /**
