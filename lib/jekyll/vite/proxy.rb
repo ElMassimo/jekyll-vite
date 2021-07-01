@@ -7,6 +7,7 @@ require 'jekyll/commands/serve/servlet'
 # Monkeypatch: Extend the default servlet to add a Rack-based proxy in order to
 # forward asset requests to the Vite.js development server.
 Jekyll::Commands::Serve::Servlet.prepend Module.new {
+  # Internal: Used to detect proxied requests since it's not a valid status code.
   STATUS_SERVE_ORIGINAL = 007
 
   def initialize(server, *args)
