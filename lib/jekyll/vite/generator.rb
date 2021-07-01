@@ -20,7 +20,7 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   # Builds assets with Vite only if `jekyll build` was run.
   def generate(site)
     ENV['JEKYLL_ENV'] ||= serving = site.config['serving'] ? 'development' : 'production'
-    generate_vite_build(site) if serving
+    generate_vite_build(site) unless serving
   end
 
   # Internal: Build all assets with Vite and add them to the site's static files.

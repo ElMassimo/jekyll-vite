@@ -1,6 +1,5 @@
 {
   "all": {
-    "publicDir": "_site",
     "sourceCodeDir": "_frontend",
     "watchAdditionalPaths": []
   },

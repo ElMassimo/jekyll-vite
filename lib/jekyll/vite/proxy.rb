@@ -15,6 +15,15 @@ Jekyll::Commands::Serve::Servlet.prepend Module.new {
     super
   end
 
+  # Override: Serve compiled Vite assets from the temporary folder as needed.
+  def set_filename(req, res)
+    original_root = @root.dup
+    if req.path_info.start_with?("/#{ ViteRuby.config.public_output_dir }/")
+      @root = ViteRuby.config.root.join(ViteRuby.config.public_dir)
+    end
+    super.tap { @root = original_root }
+  end
+
   # Override: Detect the special status set by the Proxy Servlet and use the
   # default Jekyll response instead.
   def service(req, res)
