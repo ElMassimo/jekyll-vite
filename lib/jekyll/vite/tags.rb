@@ -8,7 +8,10 @@ class Jekyll::Vite::Tag < Jekyll::Tags::IncludeTag
   def render(context)
     @context = context
     @params = @params.is_a?(String) ? parse_params(context).transform_keys(&:to_sym) : @params || {}
-    validate_file_name(@file) if @file = render_variable(@file)
+    if @file = render_variable(@file)
+      validate_file_name(@file)
+      track_file_dependency(@file)
+    end
     block_given? ? yield : raise(NotImplementedError, "Implement render in #{self.class.name}")
   end
 
@@ -45,6 +48,17 @@ protected
 
   def script_tags(sources, **attrs)
     sources.map { |src| tag(:script, src: src, **attrs) }.join("\n")
+  end
+
+  def track_file_dependency(file)
+    site = @context.registers[:site]
+    path = site.in_source_dir(File.join(ViteRuby.config.source_code_dir, ViteRuby.config.entrypoints_dir, file))
+
+    ['', '.css', '.js', '.ts'].each do |ext|
+      if File.file?(full_path = "#{ path }#{ext}")
+        return add_include_to_dependency(site, full_path, @context)
+      end
+    end
   end
 end
 
