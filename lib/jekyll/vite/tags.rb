@@ -4,7 +4,7 @@
 class Jekyll::Vite::Tag < Jekyll::Tags::IncludeTag
   include Jekyll::Filters::URLFilters
 
-  # Public: Set the context to make the site available in the URLFilters.
+  # Override: Set the context to make the site available in the URLFilters.
   def render(context)
     @context = context
     @params = @params.is_a?(String) ? parse_params(context).transform_keys(&:to_sym) : @params || {}
@@ -13,6 +13,12 @@ class Jekyll::Vite::Tag < Jekyll::Tags::IncludeTag
       track_file_dependency(@file)
     end
     block_given? ? yield : raise(NotImplementedError, "Implement render in #{self.class.name}")
+  end
+
+  # Override: Modified version that can resolve recursive references.
+  def render_variable(variable)
+    variable = Liquid::Template.parse(variable).render!(@context) while VARIABLE_SYNTAX =~ variable
+    variable
   end
 
 protected
@@ -27,38 +33,47 @@ protected
     ViteRuby.instance.manifest
   end
 
-  def render_variable(variable)
-    variable = Liquid::Template.parse(variable).render!(@context) while VARIABLE_SYNTAX =~ variable
-    variable
-  end
-
+  # Internal: Renders HTML attributes inside a tag.
   def stringify_attrs(**attrs)
     attrs.map { |key, value| %{#{key}="#{value}"} }.join(" ")
   end
 
+  # Internal: Renders an HTML tag of the specified type.
   def tag(type, **attrs)
     self_closing = type != :script
     %i[href src].each { |key| attrs[key] = relative_url(attrs[key]) if attrs.key?(key) }
     ["<#{ type } ", stringify_attrs(**attrs), self_closing ? '/>' : "></#{type}>"].join
   end
 
+  # Internal: Renders HTML link tags.
   def link_tags(sources, **attrs)
     sources.map { |href| tag(:link, href: href, **attrs) }.join("\n")
   end
 
+  # Internal: Renders HTML script tags.
   def script_tags(sources, **attrs)
     sources.map { |src| tag(:script, src: src, **attrs) }.join("\n")
   end
 
+  # Internal: Adds entrypoint files managed by Vite as a dependency in the
+  # renegerator in order to support --incremental mode.
   def track_file_dependency(file)
     site = @context.registers[:site]
     path = site.in_source_dir(File.join(ViteRuby.config.source_code_dir, ViteRuby.config.entrypoints_dir, file))
 
     ['', '.css', '.js', '.ts'].each do |ext|
       if File.file?(full_path = "#{ path }#{ext}")
-        return add_include_to_dependency(site, full_path, @context)
+        return [full_path, last_build_metadata_path].each do |path|
+          add_include_to_dependency(site, path, @context)
+        end
       end
     end
+  end
+
+  # Internal: Adding the last build metadata file as a dependency ensures
+  # all pages using Vite assets are regenerated if a Vite build is triggered.
+  def last_build_metadata_path
+    ViteRuby.instance.builder.send(:last_build_path)
   end
 end
 
