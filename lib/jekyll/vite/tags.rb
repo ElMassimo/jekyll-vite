@@ -12,7 +12,7 @@ class Jekyll::Vite::Tag < Jekyll::Tags::IncludeTag
       validate_file_name(@file)
       track_file_dependency(@file)
     end
-    block_given? ? yield : raise(NotImplementedError, "Implement render in #{self.class.name}")
+    block_given? ? yield : raise(NotImplementedError, "Implement render in #{ self.class.name }")
   end
 
   # Override: Modified version that can resolve recursive references.
@@ -35,14 +35,14 @@ protected
 
   # Internal: Renders HTML attributes inside a tag.
   def stringify_attrs(**attrs)
-    attrs.map { |key, value| %{#{key}="#{value}"} }.join(" ")
+    attrs.map { |key, value| %(#{ key }="#{ value }") }.join(' ')
   end
 
   # Internal: Renders an HTML tag of the specified type.
   def tag(type, **attrs)
     self_closing = type != :script
     %i[href src].each { |key| attrs[key] = relative_url(attrs[key]) if attrs.key?(key) }
-    ["<#{ type } ", stringify_attrs(**attrs), self_closing ? '/>' : "></#{type}>"].join
+    ["<#{ type } ", stringify_attrs(**attrs), self_closing ? '/>' : "></#{ type }>"].join
   end
 
   # Internal: Renders HTML link tags.
@@ -57,14 +57,14 @@ protected
 
   # Internal: Adds entrypoint files managed by Vite as a dependency in the
   # renegerator in order to support --incremental mode.
-  def track_file_dependency(file)
+  def track_file_dependency(name)
     site = @context.registers[:site]
-    path = site.in_source_dir(File.join(ViteRuby.config.source_code_dir, ViteRuby.config.entrypoints_dir, file))
+    path = site.in_source_dir(File.join(ViteRuby.config.source_code_dir, ViteRuby.config.entrypoints_dir, name))
 
     ['', '.css', '.js', '.ts'].each do |ext|
-      if File.file?(full_path = "#{ path }#{ext}")
-        return [full_path, last_build_metadata_path].each do |path|
-          add_include_to_dependency(site, path, @context)
+      if File.file?(asset_path = "#{ path }#{ ext }")
+        return [asset_path, last_build_metadata_path].each do |filename|
+          add_include_to_dependency(site, filename, @context)
         end
       end
     end
@@ -95,7 +95,7 @@ class Jekyll::Vite::ClientTag < Jekyll::Vite::Tag
   end
 
   def syntax_example
-    "{% #{@tag_name} %}"
+    "{% #{ @tag_name } %}"
   end
 end
 
@@ -112,7 +112,7 @@ class Jekyll::Vite::StylesheetTag < Jekyll::Vite::Tag
   end
 
   def syntax_example
-    "{% #{@tag_name} application.scss media='screen, projection' %}"
+    "{% #{ @tag_name } application.scss media='screen, projection' %}"
   end
 end
 
@@ -127,7 +127,7 @@ class Jekyll::Vite::JavascriptTag < Jekyll::Vite::Tag
 
       entries = vite_manifest.resolve_entries(@file, type: asset_type)
 
-      tags = [
+      [
         script_tags(entries.fetch(:scripts), crossorigin: crossorigin, type: type, **@params),
         link_tags(entries.fetch(:imports), rel: 'modulepreload', as: 'script', crossorigin: crossorigin, **@params),
         link_tags(entries.fetch(:stylesheets), rel: 'stylesheet', media: media, crossorigin: crossorigin, **@params),
@@ -136,10 +136,13 @@ class Jekyll::Vite::JavascriptTag < Jekyll::Vite::Tag
   end
 
   def syntax_example
-    "{% #{@tag_name} application %}"
+    "{% #{ @tag_name } application %}"
   end
 end
 
+# Recreating tag helpers in Jekyll requires considerably more code than in web
+# frameworks, since Liquid does not provide HTML helpers and parsing parameters
+# is more complex than a Ruby method invocation.
 {
   'vite_asset_path' => Jekyll::Vite::AssetPathTag,
   'vite_client_tag' => Jekyll::Vite::ClientTag,

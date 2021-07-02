@@ -4,11 +4,11 @@ require 'rack'
 require 'webrick'
 require 'jekyll/commands/serve/servlet'
 
-# Monkeypatch: Extend the default servlet to add a Rack-based proxy in order to
+# Internal: Extend the default servlet to add a Rack-based proxy in order to
 # forward asset requests to the Vite.js development server.
-Jekyll::Commands::Serve::Servlet.prepend Module.new {
+module Jekyll::Vite::Proxy
   # Internal: Used to detect proxied requests since it's not a valid status code.
-  STATUS_SERVE_ORIGINAL = 007
+  STATUS_SERVE_ORIGINAL = 0o07
 
   def initialize(server, *args)
     @server = server
@@ -37,7 +37,7 @@ private
   def proxy_servlet
     @proxy_servlet ||= begin
       # Called by the proxy if a request shouldn't be served by Vite.
-      app = ->(env) { [STATUS_SERVE_ORIGINAL, {}, []] }
+      app = ->(_env) { [STATUS_SERVE_ORIGINAL, {}, []] }
 
       # Initialize the proxy which is a Rack app.
       proxy = ViteRuby::DevServerProxy.new(app)
@@ -46,4 +46,6 @@ private
       Rack::Handler::WEBrick.new(@server, proxy)
     end
   end
-}
+end
+
+Jekyll::Commands::Serve::Servlet.prepend Jekyll::Vite::Proxy

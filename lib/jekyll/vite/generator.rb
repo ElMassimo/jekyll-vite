@@ -4,7 +4,7 @@
 # that they are copied over to the built site.
 class Jekyll::Vite::Generator < Jekyll::Generator
   safe true
-  priority :high
+  priority :highest
 
   class ViteAssetFile < Jekyll::StaticFile
     # Override: Copy to the configured public_output_dir
@@ -19,7 +19,8 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   # Internal: Set the mode based on which command was run.
   # Builds assets with Vite only if `jekyll build` was run.
   def generate(site)
-    ENV['JEKYLL_ENV'] ||= serving = site.config['serving'] ? 'development' : 'production'
+    serving = site.config['serving']
+    ENV['JEKYLL_ENV'] ||= serving ? 'development' : 'production'
     generate_vite_build(site) unless serving
   end
 
@@ -30,8 +31,8 @@ class Jekyll::Vite::Generator < Jekyll::Generator
     files = Dir.chdir(ViteRuby.config.build_output_dir.to_s) {
       Dir.glob('**/*').select { |f| File.file?(f) }
     }
-    site.static_files.concat files.map { |file|
+    site.static_files.concat(files.map { |file|
       ViteAssetFile.new(site, site.source, assets_dir, file)
-    }
+    })
   end
 end

@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version  = Jekyll::Vite::VERSION
   s.authors  = ['Máximo Mussini']
   s.email    = ['maximomussini@gmail.com']
-  s.summary  = 'Use Vite.js in Jekyll to manage your assets with a fast and modern pipeline'
+  s.summary  = 'Use Vite.js in Jekyll and enjoy a modern assets pipeline'
   s.homepage = 'https://github.com/ElMassimo/jekyll-vite'
   s.license  = 'MIT'
   s.metadata = {
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new('>= 2.4')
 
   s.add_dependency 'jekyll', '>= 3', '< 5'
-  s.add_dependency 'vite_ruby', '~> 1.0'
+  s.add_dependency 'vite_ruby', '>= 1.2.14', '< 2'
 
   s.files = Dir.glob('{lib,templates}/**/*') + %w[README.md CHANGELOG.md LICENSE.txt]
   s.test_files = `git ls-files -- test/*`.split("\n")

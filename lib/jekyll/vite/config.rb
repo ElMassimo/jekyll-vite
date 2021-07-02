@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jekyll::Vite::Config
-  # Override: Default values for a Rails application.
+  # Override: Provide default values for a typical Jekyll site.
   def config_defaults(**opts)
     require 'jekyll'
     config = Jekyll.configuration
