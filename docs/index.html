@@ -1,0 +1,23 @@
+---
+title: Posts
+layout: page
+---
+<h1>Posts</h1>
+
+<ul class="posts list">
+{% for post in site.posts %}
+  <li>
+    <a href="{{ post.url }}" class="post{% unless post.description %} overlay{% endunless %}">
+      <div>
+        <span class="title ch">{{ post.title }}</span>
+        <span class="date ch">
+          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
+        </span>
+        {% if post.description %}
+          <p class="description">{{ post.description | markdownify }}</p>
+        {% endif %}
+      </div>
+    </a>
+  </li>
+{% endfor %}
+</ul>

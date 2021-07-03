@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="content container">
+  {% unless page.image and page.noimage != "true" %}<h1>{{ page.title }}</h1>{% endunless %}
+
+  {% include post_info.html post=page %}
+
+  <div class="post">
+    {{ content }}
+  </div>
+
+  {% include ending.html %}
+</div>
+
+{% include next_post.html %}

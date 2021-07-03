@@ -1,0 +1,39 @@
+name:        Jekyll ➕ Vite.js
+tagline:     Enjoy a modern assets pipeline
+description: Use Vite.js in Jekyll as your assets pipeline
+
+url:         https://maximomussini.com/jekyll-vite
+canonical:   maximomussini.com
+
+author:
+  name:      Máximo Mussini
+  twitter:   https://twitter.com/MaximoMussini
+  github:    https://github.com/ElMassimo
+
+permalink:   /:categories/:title/ # http://jekyllrb.com/docs/permalinks
+timezone:    America/Montevideo
+future:      true
+
+plugins:
+  - jekyll/vite
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      category: posts
+
+exclude:
+  - bin
+  - config
+  - docs
+  - exe
+  - pnpm-lock.yaml
+  - vite.config.ts

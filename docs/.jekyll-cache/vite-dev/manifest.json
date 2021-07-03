@@ -1,0 +1,10 @@
+{
+  "application.ts": {
+    "file": "assets/application.8564b95e.js",
+    "src": "application.ts",
+    "isEntry": true,
+    "css": [
+      "assets/application.a804ea19.css"
+    ]
+  }
+}
