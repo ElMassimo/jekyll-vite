@@ -8,7 +8,7 @@ require 'jekyll/commands/serve/servlet'
 # forward asset requests to the Vite.js development server.
 module Jekyll::Vite::Proxy
   # Internal: Used to detect proxied requests since it's not a valid status code.
-  STATUS_SERVE_ORIGINAL = 0o07
+  STATUS_SERVE_ORIGINAL = 7
 
   def initialize(server, *args)
     @server = server
@@ -28,7 +28,10 @@ module Jekyll::Vite::Proxy
   # default Jekyll response instead.
   def service(req, res)
     proxy_servlet.service(req, res)
-    super if res.status == STATUS_SERVE_ORIGINAL
+    if res.status == STATUS_SERVE_ORIGINAL
+      res.status = nil
+      super
+    end
   end
 
 private
