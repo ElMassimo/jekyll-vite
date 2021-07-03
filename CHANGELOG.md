@@ -1,3 +1,12 @@
+## [0.0.2](https://github.com/ElMassimo/vite_ruby/compare/v0.0.1...v0.0.2) (2021-07-03)
+
+
+### Bug Fixes
+
+* Do not serve files with custom status in local development server ([86cf47b](https://github.com/ElMassimo/vite_ruby/commit/86cf47b485520879c7b7e7a79c7245dc0ba92b16))
+
+
+
 ## 0.0.1 (2021-07-02)
 
 ### Features
