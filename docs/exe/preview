@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bundle exec jekyll build && npx serve _site

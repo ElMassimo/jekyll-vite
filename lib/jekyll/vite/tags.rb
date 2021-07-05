@@ -64,7 +64,7 @@ protected
     ['', '.css', '.js', '.ts'].each do |ext|
       if File.file?(asset_path = "#{ path }#{ ext }")
         return [asset_path, last_build_metadata_path].each do |filename|
-          add_include_to_dependency(site, filename, @context)
+          add_include_to_dependency(site, filename.to_s, @context)
         end
       end
     end
@@ -80,7 +80,7 @@ end
 # Public: Renders a path to a Vite asset.
 class Jekyll::Vite::AssetPathTag < Jekyll::Vite::Tag
   def render(context)
-    super { vite_asset_path(@file, @params) }
+    super { vite_asset_path(@file, **@params) }
   end
 end
 
@@ -92,6 +92,17 @@ class Jekyll::Vite::ClientTag < Jekyll::Vite::Tag
     super {
       tag :script, src: src, type: 'module'
     }
+  end
+
+  def syntax_example
+    "{% #{ @tag_name } %}"
+  end
+end
+
+# Public: Renders a script tag to enable HMR with React Refresh.
+class Jekyll::Vite::ReactRefreshTag < Jekyll::Vite::Tag
+  def render(_context)
+    vite_manifest.react_refresh_preamble&.html_safe
   end
 
   def syntax_example
@@ -149,6 +160,7 @@ end
   'vite_javascript_tag' => Jekyll::Vite::JavascriptTag,
   'vite_typescript_tag' => Jekyll::Vite::JavascriptTag,
   'vite_stylesheet_tag' => Jekyll::Vite::StylesheetTag,
+  'vite_react_refresh_tag' => Jekyll::Vite::ReactRefreshTag,
 }.each do |name, tag|
   Liquid::Template.register_tag(name, tag)
 end

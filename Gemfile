@@ -4,8 +4,9 @@ source 'https://rubygems.org'
 
 gemspec path: '.'
 
+gem 'kramdown-parser-gfm', '~> 1.1'
+
 group :development, :test do
-  gem 'pry-byebug'
   gem 'rubocop', '~> 1.9'
   gem 'rubocop-minitest', '~> 0.10'
   gem 'rubocop-performance', '~> 1.9'

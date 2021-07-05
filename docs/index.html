@@ -1,0 +1,39 @@
+---
+title: Posts
+layout: page
+regenerate: true
+---
+<main>
+  <div class="divide-y divide-subtle">
+    <div class="pt-6 pb-8 space-y-2 md:space-y-5"><h1 class="text-3xl font-extrabold text-deeper tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem]">Documentation</h1><p class="text-lg text-normal">Learn how to use Vite.js to manage assets in your Jekyll site.</p></div>
+
+    <ul class="divide-y divide-subtle">
+    {% assign posts = site.posts | reverse %}
+    {% for post in posts %}
+      <li class="py-12">
+        <article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+          <dl>
+            <dt class="sr-only">Published on</dt>
+            <dd class="text-base font-medium text-normal">
+              <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time>
+            </dd>
+          </dl>
+          <div class="space-y-5 xl:col-span-3">
+            <div class="space-y-6">
+              <h2 class="text-2xl font-bold tracking-tight">
+                <a class="text-deeper" href="{{ post.url }}">{{ post.title }}</a>
+              </h2>
+              <div class="prose max-w-none text-normal">
+                {{ post.excerpt }}
+              </div>
+            </div>
+            <div class="text-base font-medium">
+              <a class="text-primary hover:text-primary-deep" aria-label="Read &quot;{{ post.title }}&quot;" href="{{ post.url }}">Read more →</a>
+            </div>
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</main>

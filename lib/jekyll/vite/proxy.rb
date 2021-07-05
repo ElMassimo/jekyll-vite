@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rack'
-require 'webrick'
 require 'jekyll/commands/serve/servlet'
 
 # Internal: Extend the default servlet to add a Rack-based proxy in order to
@@ -29,7 +28,7 @@ module Jekyll::Vite::Proxy
   def service(req, res)
     proxy_servlet.service(req, res)
     if res.status == STATUS_SERVE_ORIGINAL
-      res.status = nil
+      res.status = 200
       super
     end
   end

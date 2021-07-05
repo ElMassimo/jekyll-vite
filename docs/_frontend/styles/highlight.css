@@ -1,0 +1,91 @@
+.highlight {
+  background: var(--prism-background);
+  color: var(--prism-foreground);
+}
+
+/* --- Generics --- */
+.highlight .ge { font-style: italic; } /* emph */
+.highlight .gs { font-weight: bold; } /* strong */
+
+/* --- Operators --- */
+.highlight .o { color: var(--prism-operator); } /* Operator */
+.highlight .ow { color: var(--prism-operator); } /* Word */
+
+/* --- Comments --- */
+.highlight .c { color: var(--prism-comment); font-style: italic; } /* Comment */
+.highlight .cm { color: var(--prism-comment); font-style: italic; } /* Multi-line */
+.highlight .cp { color: var(--prism-comment); font-style: italic; } /* Preproc */
+.highlight .c1 { color: var(--prism-comment); font-style: italic; } /* Single */
+.highlight .cs { color: var(--prism-comment); font-style: italic; } /* Special */
+
+/* --- Names --- */
+.highlight .n { color: var(--prism-literal); } /* Name */
+.highlight .py { color: var(--prism-property); } /* Property */
+.highlight .nl { color: var(--prism-literal); } /* Label */
+.highlight .ni { color: var(--prism-literal); } /* Entity */
+.highlight .nb { color: var(--prism-foreground); } /* Builtin */ /* shell commands */
+.highlight .bp { color: var(--prism-literal); } /* Builtin.Pseudo */
+.highlight .nf { color: var(--prism-function); } /* Function */
+.highlight .na { color: var(--prism-property); } /* Attribute */
+.highlight .nx { color: var(--prism-property); } /* Other */
+.highlight .nc { color: var(--prism-class); } /* Class */
+.highlight .nn { color: var(--prism-namespace); } /* Namespace */
+.highlight .no { color: var(--prism-constant); } /* Constant */
+.highlight .ne { color: var(--prism-variable); } /* Exception */
+.highlight .nd { color: var(--prism-decorator); } /* Decorator */
+.highlight .nt { color: var(--prism-builtin); } /* Tag */
+
+/* --- Keywords --- */
+.highlight .kn { color: var(--prism-namespace); } /* Namespace */
+.highlight .k { color: var(--prism-keyword); } /* Keyword */
+.highlight .kc { color: var(--prism-keyword); } /* Constant */
+.highlight .kd { color: var(--prism-keyword); } /* Declaration */
+.highlight .kp { color: var(--prism-keyword); } /* Pseudo */
+.highlight .kr { color: var(--prism-keyword); } /* Reserved */
+.highlight .kt { color: var(--prism-namespace); } /* Type */
+
+/* --- Variables --- */
+.highlight .nv { color: var(--prism-variable); } /* Variable */
+.highlight .vc { color: var(--prism-variable); } /* Class */
+.highlight .vg { color: var(--prism-variable); } /* Global */
+.highlight .vi { color: var(--prism-variable); } /* Instance */
+
+/* --- Numerals --- */
+.highlight .m { color: var(--prism-number); } /* Number */
+.highlight .il { color: var(--prism-number); } /* Long */
+.highlight .mf { color: var(--prism-number); } /* Float */
+.highlight .mh { color: var(--prism-number); } /* Hex */
+.highlight .mi { color: var(--prism-number); } /* Integer */
+.highlight .mo { color: var(--prism-number); } /* Oct */
+
+/* --- Strings --- */
+.highlight .s { color: var(--prism-selector); } /* String */
+.highlight .sr { color: var(--prism-string); } /* Regex */
+.highlight .sb { color: var(--prism-string); } /* Backtick */
+.highlight .s2 { color: var(--prism-string); } /* Double */
+.highlight .sh { color: var(--prism-string); } /* Heredoc */
+.highlight .sx { color: var(--prism-string); } /* Other */
+.highlight .s1 { color: var(--prism-string); } /* Single */
+.highlight .ss { color: var(--prism-string); } /* Symbol */
+.highlight .se { color: var(--prism-number); } /* Escape */
+.highlight .si { color: var(--prism-number); } /* Interpol */
+.highlight .sc { color: var(--prism-literal); } /* Char */
+.highlight .sd { color: var(--prism-comment); } /* Doc */
+
+/* --- Other Literals --- */
+.highlight .l { color: var(--prism-literal); } /* Literal */
+.highlight .ld { color: var(--prism-string); } /* Date */
+
+/* --- Typographic Elements --- */
+.highlight .p { color: var(--prism-literal); } /* Punctuation */
+.highlight .w { color: var(--prism-literal); } /* Whitespace */ /* shouldn't this have a background-color instead ? */
+
+/* --- Others --- */
+.highlight .err { color: var(--prism-variable); } /* Error */
+.highlight .gp { color: var(--prism-namespace); } /* shell prompt */
+
+/* --- Style --- */
+.highlight .gi { color: var(--prism-string); } /* inserted */
+.highlight .gd { color: var(--prism-variable); } /* deleted */
+.highlight .gh { color: var(--prism-literal); font-weight: bold; } /* heading */
+.highlight .gu { color: var(--prism-operator); font-weight: bold; } /* subheading */
