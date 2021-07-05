@@ -3,7 +3,7 @@ import { isDark, toggleDark } from '~/logic/dark'
 </script>
 
 <template>
-  <NavBarIcon aria-label="Toggle theme" @click="toggleDark">
+  <NavBarIcon aria-label="Toggle theme" @click="toggleDark()">
     <transition name="slide" mode="out-in">
       <bx:bx-moon v-if="isDark"/>
       <bx:bx-sun v-else/>

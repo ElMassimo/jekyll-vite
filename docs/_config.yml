@@ -38,6 +38,7 @@ exclude:
   - config
   - docs
   - exe
+  - netlify.toml
   - node_modules
   - package.json
   - shims.d.ts
