@@ -1,0 +1,8 @@
+{% if include.post %}
+<div>
+  <h2 class="text-xs leading-5 tracking-wide uppercase text-normal">{{ include.title }}</h2>
+  <div class="text-primary hover:text-primary-deep">
+    <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+  </div>
+</div>
+{% endif %}

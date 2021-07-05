@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite-plugin-windicss'
-import colors from 'windicss/colors'
 import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
@@ -11,7 +10,13 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        accent: colors.lightBlue,
+        primary: 'var(--color-primary)',
+        'primary-deep': 'var(--color-primary-deep)',
+        shallow: 'var(--fg-shallow)',
+        normal: 'var(--fg)',
+        deep: 'var(--fg-deep)',
+        deeper: 'var(--fg-deeper)',
+        subtle: 'var(--color-subtle)',
       },
       screens: {
         print: { raw: 'print' },
@@ -25,6 +30,15 @@ export default defineConfig({
               color: 'var(--fg-deeper)',
             },
             b: { color: 'var(--fg-deep)' },
+            'a code': {
+              color: 'var(--fg-deep)',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
             code: { color: 'var(--fg-deep)' },
             strong: { color: 'var(--fg-deep)' },
             blockquote: { color: 'var(--fg-deep)' },

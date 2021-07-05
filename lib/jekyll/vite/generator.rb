@@ -7,12 +7,23 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   priority :highest
 
   class ViteAssetFile < Jekyll::StaticFile
-    # Override: Copy to the configured public_output_dir
-    def cleaned_relative_path
-      super.sub(
-        ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
-        ViteRuby.config.public_output_dir,
-      )
+    # Jekyll 4.2 defines cleaned_relative_path
+    if method_defined?(:cleaned_relative_path)
+      # Override: Copy to the configured public_output_dir
+      def cleaned_relative_path
+        super.sub(
+          ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
+          ViteRuby.config.public_output_dir,
+        )
+      end
+    else
+      # Override: Copy to the configured public_output_dir
+      def destination_rel_dir
+        super.sub(
+          ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
+          ViteRuby.config.public_output_dir,
+        )
+      end
     end
   end
 
@@ -27,7 +38,7 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   # Internal: Build all assets with Vite and add them to the site's static files.
   def generate_vite_build(site)
     ViteRuby.commands.build_from_task
-    assets_dir = ViteRuby.config.build_output_dir.relative_path_from(site.source)
+    assets_dir = ViteRuby.config.build_output_dir.relative_path_from(site.source).to_s
     files = Dir.chdir(ViteRuby.config.build_output_dir.to_s) {
       Dir.glob('**/*').select { |f| File.file?(f) }
     }

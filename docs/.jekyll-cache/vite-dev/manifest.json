@@ -1,10 +1,16 @@
 {
   "application.ts": {
-    "file": "assets/application.8564b95e.js",
+    "file": "assets/application.7eb94b89.js",
     "src": "application.ts",
     "isEntry": true,
+    "imports": [
+      "_vendor.4e26ff18.js"
+    ],
     "css": [
-      "assets/application.a804ea19.css"
+      "assets/application.f1cf70ac.css"
     ]
+  },
+  "_vendor.4e26ff18.js": {
+    "file": "assets/vendor.4e26ff18.js"
   }
 }

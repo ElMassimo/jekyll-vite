@@ -1,16 +1,56 @@
 ---
-layout: default
+layout: page
 ---
-<div class="content container">
-  {% unless page.image and page.noimage != "true" %}<h1>{{ page.title }}</h1>{% endunless %}
-
-  {% include post_info.html post=page %}
-
-  <div class="post">
-    {{ content }}
-  </div>
-
-  {% include ending.html %}
-</div>
-
-{% include next_post.html %}
+<main>
+   <article class="xl:divide-y xl:divide-subtle">
+      <header class="pt-6 xl:pb-10">
+         <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+               <div>
+                  <dt class="sr-only">Published on</dt>
+                  <dd class="text-base leading-6 font-medium text-normal">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%A, %B %-d, %Y" }}</time>
+                  </dd>
+               </div>
+            </dl>
+            <div>
+               <h1 class="text-3xl font-extrabold text-deeper tracking-tight sm:text-4xl md:text-5xl md:leading-[3.5rem]">{{ page.title }}</h1>
+            </div>
+         </div>
+      </header>
+      <div class="divide-y xl:divide-y-0 divide-subtle xl:grid xl:grid-cols-4 xl:gap-x-6 pb-16 xl:pb-20 grid-rows-[auto,1fr]" style="grid-template-rows: auto 1fr;">
+         <dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-subtle">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+               <ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                  <li class="flex items-center space-x-2">
+                     <img src="{% vite_asset_path author.jpg %}" alt="" class="w-10 h-10 rounded-full">
+                     <dl class="text-sm font-medium whitespace-no-wrap">
+                        <dt class="sr-only">Name</dt>
+                        <dd class="text-deeper">{{ site.author.name }}</dd>
+                        <dt class="sr-only">Twitter</dt>
+                        <dd><a href="https://twitter.com/{{ site.author.twitter }}" class="text-primary hover:text-primary-deep">@{{ site.author.twitter }}</a></dd>
+                     </dl>
+                  </li>
+               </ul>
+            </dd>
+         </dl>
+         <div class="divide-y divide-subtle xl:pb-0 xl:col-span-3 xl:row-span-2">
+            <div class="prose max-w-none pt-10 pb-8">
+              {{ content }}
+            </div>
+            <div class="flex justify-between border-t-1 border-subtle py-4 px-1">
+              {% include post_footer.html post=page.previous previous='true' %}
+              {% include post_footer.html post=page.next next='true' %}
+            </div>
+         </div>
+         <footer class="text-sm font-medium divide-y divide-subtle xl:col-start-1 xl:row-start-2">
+            <div class="space-y-8 py-8">
+              {% include related_post.html post=page.next title="Next Section" %}
+              {% include related_post.html post=page.previous title="Previous Section" %}
+            </div>
+            <div class="pt-8"><a class="text-primary hover:text-primary-deep" href="/">← Back to the index</a></div>
+         </footer>
+      </div>
+   </article>
+</main>

@@ -7,7 +7,7 @@ canonical:   maximomussini.com
 
 author:
   name:      Máximo Mussini
-  twitter:   https://twitter.com/MaximoMussini
+  twitter:   maximomussini
   github:    https://github.com/ElMassimo
 
 permalink:   /:categories/:title/ # http://jekyllrb.com/docs/permalinks
@@ -29,6 +29,7 @@ defaults:
     values:
       layout: post
       category: posts
+      excerpt_separator: <!--more-->
 
 exclude:
   - bin

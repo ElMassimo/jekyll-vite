@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      const prefersDark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    </script>
+    <script src="/vite-dev/@vite/client" type="module"></script>
+    <script src="/vite-dev/application.ts" crossorigin="anonymous" type="module"></script>
+
+
+  </head>
+  <body>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+  <header class="flex justify-between items-center py-10">
+  <div>
+    <a class="flex place-center" href="/">
+      <img class="h-8 -top-px inline-block relative" src="/vite-dev/logo.svg" alt="Logo"/>
+      <span class="font-medium text-xl ml-2 text-deeper">Jekyll + Vite.js</span>
+    </a>
+  </div>
+  <div id="nav-bar-actions" class="text-base leading-5 flex items-center border-b-0 ml-3 space-x-4 ml-4">
+  </div>
+</header>
+
+  <main>
+   <article class="xl:divide-y xl:divide-subtle">
+      <header class="pt-6 xl:pb-10">
+         <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+               <div>
+                  <dt class="sr-only">Published on</dt>
+                  <dd class="text-base leading-6 font-medium text-normal">
+                    <time datetime="2021-07-04T12:30:00-03:00" itemprop="datePublished">Sunday, July 4, 2021</time>
+                  </dd>
+               </div>
+            </dl>
+            <div>
+               <h1 class="text-3xl font-extrabold text-deeper tracking-tight sm:text-4xl md:text-5xl md:leading-[3.5rem]">Installation 💿</h1>
+            </div>
+         </div>
+      </header>
+      <div class="divide-y xl:divide-y-0 divide-subtle xl:grid xl:grid-cols-4 xl:gap-x-6 pb-16 xl:pb-20 grid-rows-[auto,1fr]" style="grid-template-rows: auto 1fr;">
+         <dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-subtle">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+               <ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                  <li class="flex items-center space-x-2">
+                     <img src="/vite-dev/author.jpg" alt="" class="w-10 h-10 rounded-full">
+                     <dl class="text-sm font-medium whitespace-no-wrap">
+                        <dt class="sr-only">Name</dt>
+                        <dd class="text-deeper">Máximo Mussini</dd>
+                        <dt class="sr-only">Twitter</dt>
+                        <dd><a href="https://twitter.com/maximomussini" class="text-primary hover:text-primary-deep">@maximomussini</a></dd>
+                     </dl>
+                  </li>
+               </ul>
+            </dd>
+         </dl>
+         <div class="divide-y divide-subtle xl:pb-0 xl:col-span-3 xl:row-span-2">
+            <div class="prose max-w-none pt-10 pb-8">
+              
+<p>Add this line to your site’s Gemfile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'jekyll-vite'</span>
+</code></pre></div></div>
+
+<p>Then, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>vite <span class="nb">install</span>
+</code></pre></div></div>
+
+<!--more-->
+
+<p>This will add the plugin in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll/vite</span>
+</code></pre></div></div>
+
+<p>It will also generate a sample setup in <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> (if it exists):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="c">&lt;!-- meta tags, etc --&gt;</span>
+  {% vite_client_tag %}
+  {% vite_javascript_tag application %}
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+
+<p>It also:</p>
+
+<ul>
+  <li>Adds the <kbd>bin/vite</kbd> executable to start the dev server and run other <a href="/guide/development.html#cli-commands-⌨%EF%B8%8F">commands</a></li>
+  <li>Installs <a href="https://vitejs.dev/"><kbd>vite</kbd></a> and <a href="https://github.com/ElMassimo/vite_ruby/tree/main/vite-plugin-ruby"><kbd>vite-plugin-ruby</kbd></a></li>
+  <li>Adds <a href="/config/#configuring-vite-%E2%9A%A1"><code class="language-plaintext highlighter-rouge">vite.config.ts</code></a> and <a href="/config/#shared-configuration-file-%F0%9F%93%84"><code class="language-plaintext highlighter-rouge">config/vite.json</code></a> configuration files</li>
+  <li>Creates a sample <code class="language-plaintext highlighter-rouge">application.js</code> entrypoint in your Jekyll site</li>
+</ul>
+
+
+            </div>
+            <div class="flex justify-between border-t-1 border-subtle py-4 px-1">
+              <div class="flex">
+   
+</div>
+
+              <div class="flex">
+   
+      <a class="max-w-full inline-flex items-center font-medium" href="/posts/getting-started/">
+         
+         <span class="whitespace-nowrap text-primary">Getting Started 💻</span>
+         
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon icon-next" data-v-01ae7502=""><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg>
+
+         
+      </a>
+   
+</div>
+
+            </div>
+         </div>
+         <footer class="text-sm font-medium divide-y divide-subtle xl:col-start-1 xl:row-start-2">
+            <div class="space-y-8 py-8">
+              
+<div>
+  <h2 class="text-xs leading-5 tracking-wide uppercase text-normal">Next Section</h2>
+  <div class="text-primary hover:text-primary-deep">
+    <a href="/posts/getting-started/">Getting Started 💻</a>
+  </div>
+</div>
+
+
+              
+
+            </div>
+            <div class="pt-8"><a class="text-primary hover:text-primary-deep" href="/">← Back to the index</a></div>
+         </footer>
+      </div>
+   </article>
+</main>
+
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<div class="flex">
+   {% if include.post %}
+      <a class="max-w-full inline-flex items-center font-medium" href="{{ include.post.url }}">
+         {% if include.previous %}
+           {% inline _icons/previous.svg %}
+         {% endif %}
+         <span class="whitespace-nowrap text-primary">{{ include.post.title }}</span>
+         {% if include.next %}
+           {% inline _icons/next.svg %}
+         {% endif %}
+      </a>
+   {% endif %}
+</div>

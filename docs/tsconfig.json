@@ -14,7 +14,7 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "~/*": ["./.vitepress/*"]
+      "~/*": ["./_frontend/*"]
     }
   },
   "exclude": ["dist", "node_modules"]

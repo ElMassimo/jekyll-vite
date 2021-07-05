@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# exe/serve: Starts the Jekyll development server.
+set -e
+cd "$(dirname "$0")/.."
+exe/rename_window "server"
+
+# Ensure the environment is set as development
+test -z "$JEKYLL_ENV" && JEKYLL_ENV='development'
+export JEKYLL_ENV
+
+# Boot the app and any other necessary processes.
+echo "\n== Starting server =="
+
+JEKYLL_LOG_LEVEL=debug bundle exec jekyll serve --livereload "$@"

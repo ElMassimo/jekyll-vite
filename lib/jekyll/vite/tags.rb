@@ -64,7 +64,7 @@ protected
     ['', '.css', '.js', '.ts'].each do |ext|
       if File.file?(asset_path = "#{ path }#{ ext }")
         return [asset_path, last_build_metadata_path].each do |filename|
-          add_include_to_dependency(site, filename, @context)
+          add_include_to_dependency(site, filename.to_s, @context)
         end
       end
     end

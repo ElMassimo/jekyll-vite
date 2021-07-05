@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# exe/rename_window: Renames the current tab or window in TMUX, Screen, or normal terminal.
+title="$@"
+
+if [ ! -z "$TMUX" ]; then
+  # Rename when using from tmux session.
+  tmux rename-window "$title"
+else
+  if [ ! -z "$STY" ]; then
+    # Rename when using from GNU Screen session.
+    printf "\033k$title\033\\"
+  else
+    # Rename for regular bash terminal.
+    printf "\e]1;$1\a"
+  fi
+fi
