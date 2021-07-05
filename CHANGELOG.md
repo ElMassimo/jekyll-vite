@@ -1,3 +1,13 @@
+## <small>0.0.3 (2021-07-05)</small>
+
+* docs: Add documentation site and add test coverage (#1) ([d88f4bb](https://github.com/ElMassimo/vite_ruby/commit/d88f4bb)), closes [#1](https://github.com/ElMassimo/vite_ruby/issues/1)
+* docs: Avoid adding netlify.toml to the final site ([63514c6](https://github.com/ElMassimo/vite_ruby/commit/63514c6))
+* docs: Avoid dark theme flash ([96aea65](https://github.com/ElMassimo/vite_ruby/commit/96aea65))
+* docs: Debug netlify cache ([ab0806e](https://github.com/ElMassimo/vite_ruby/commit/ab0806e))
+* docs: Deploy to netlify (#2) ([efb0683](https://github.com/ElMassimo/vite_ruby/commit/efb0683)), closes [#2](https://github.com/ElMassimo/vite_ruby/issues/2)
+
+
+
 ## [0.0.2](https://github.com/ElMassimo/vite_ruby/compare/v0.0.1...v0.0.2) (2021-07-03)
 
 
