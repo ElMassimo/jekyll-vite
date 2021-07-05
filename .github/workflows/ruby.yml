@@ -49,6 +49,13 @@ jobs:
           bundle _${{ matrix.bundler }}_ config --global gemfile ${{ matrix.gemfile }}
           bundle _${{ matrix.bundler }}_ install # --jobs 4 --retry 3
 
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.13.6
+          run_install: |
+            - recursive: false
+            - cwd: 'docs'
+
       - name: Setup Code Climate test-reporter
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
