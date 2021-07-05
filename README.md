@@ -1,11 +1,11 @@
 <h1 align="center">
-  <a href="https://vite-ruby.netlify.app/">
+  <a href="https://jekyll-vite.netlify.app/">
     <img src="https://raw.githubusercontent.com/ElMassimo/vite_ruby/main/docs/public/logo.svg" width="120px"/>
   </a>
 
   <br>
 
-  <a href="https://vite-ruby.netlify.app/">
+  <a href="https://jekyll-vite.netlify.app/">
     Jekyll ➕ Vite.js
   </a>
 
@@ -31,7 +31,7 @@
 </h1>
 
 [vite ruby]: https://github.com/ElMassimo/vite-ruby
-[website]: https://vite-ruby.netlify.app/
+[website]: https://jekyll-vite.netlify.app/
 [jekyll]: https://jekyllrb.com/
 [configuration reference]: https://vite-ruby.netlify.app/config/
 [features]: https://vite-ruby.netlify.app/guide/introduction.html
@@ -44,6 +44,7 @@
 [bundling]: https://vitejs.dev/guide/why.html#why-bundle-for-production
 [rollup.js]: https://rollupjs.org
 [esbuild]: https://esbuild.github.io/
+[example]: https://github.com/ElMassimo/jekyll-vite/tree/main/docs
 
 Use [Vite.js] in [Jekyll] and enjoy a modern assets pipeline! ⚡️
 
@@ -53,7 +54,7 @@ Use [Vite.js] in [Jekyll] and enjoy a modern assets pipeline! ⚡️
 
 - ⚡️ Blazing fast hot reload
 - 📦 Zero-config builds
-- 🎨 Use your favorite languages/preprocessors/utilities (TypeScript, Tailwind CSS, etc.)
+- 🎨 Use your favorite tools (TypeScript, Tailwind CSS, etc.)
 
 ## Why Vite? 🤔
 
@@ -65,6 +66,13 @@ assets are not fingerprinted which is problematic for caching.
 a result there is an active ecosystem of plugins and tooling available. In addition,
 it's [no bundling] design provides a very fluid authoring experience—changes to
 your assets are reflected instantly in your browser.
+
+## Documentation 📖
+
+The [documentation website][website] is built using `jekyll-vite`.
+
+You can [check the source to see an example setup][example], or visit it to
+[learn how to use `jekyll-vite`][website].
 
 ## Installation 💿
 
@@ -81,23 +89,6 @@ bundle install
 bundle exec vite install
 ```
 
-This will install the plugin in `_config.yml`, and generate a sample setup in
-`_layouts/default.html` (if it exists).
-
-```yml
-plugins:
-  - jekyll/vite
-```
-
-```html
-<head>
-  <!-- meta tags, etc -->
-  {% vite_client_tag %}
-  {% vite_javascript_tag application %}
-  {% vite_stylesheet_tag styles.scss %}
-</head>
-```
-
 Additional installation instructions are available in the [documentation website][website].
 
 ## Getting Started 💻
@@ -107,9 +98,7 @@ restart your Jekyll server with <kbd>bin/jekyll serve</kbd>.
 
 Visit any page and you should see a printed console output: `Vite ⚡️ Ruby`.
 
-For more [guides] and a full [configuration reference], check the [documentation website][website].
-
-_A new section for Jekyll is coming soon!_
+Check the [documentation website][website] for more information.
 
 ## Contact ✉️
 
