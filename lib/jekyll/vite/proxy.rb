@@ -29,7 +29,7 @@ module Jekyll::Vite::Proxy
   def service(req, res)
     proxy_servlet.service(req, res)
     if res.status == STATUS_SERVE_ORIGINAL
-      res.status = nil
+      res.status = 200
       super
     end
   end

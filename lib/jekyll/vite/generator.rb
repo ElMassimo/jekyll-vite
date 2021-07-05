@@ -7,23 +7,25 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   priority :highest
 
   class ViteAssetFile < Jekyll::StaticFile
-    # Jekyll 4.2 defines cleaned_relative_path
+    # Override (4.2): Copy to the configured public_output_dir
     if method_defined?(:cleaned_relative_path)
-      # Override: Copy to the configured public_output_dir
       def cleaned_relative_path
-        super.sub(
-          ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
-          ViteRuby.config.public_output_dir,
-        )
+        replace_build_path(super)
       end
-    else
-      # Override: Copy to the configured public_output_dir
-      def destination_rel_dir
-        super.sub(
-          ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
-          ViteRuby.config.public_output_dir,
-        )
-      end
+    end
+
+    # Override: Copy to the configured public_output_dir
+    def destination_rel_dir
+      replace_build_path(super)
+    end
+
+  private
+
+    def replace_build_path(src)
+      src.sub(
+        ViteRuby.config.build_output_dir.relative_path_from(@site.source).to_s,
+        ViteRuby.config.public_output_dir,
+      )
     end
   end
 
@@ -38,12 +40,17 @@ class Jekyll::Vite::Generator < Jekyll::Generator
   # Internal: Build all assets with Vite and add them to the site's static files.
   def generate_vite_build(site)
     ViteRuby.commands.build_from_task
-    assets_dir = ViteRuby.config.build_output_dir.relative_path_from(site.source).to_s
-    files = Dir.chdir(ViteRuby.config.build_output_dir.to_s) {
+    add_static_files(site, ViteRuby.config.build_output_dir)
+  end
+
+  # Internal: Add generated assets to the site's static files.
+  def add_static_files(site, assets_dir)
+    relative_assets_dir = assets_dir.relative_path_from(site.source).to_s
+    vite_static_files = Dir.chdir(assets_dir.to_s) {
       Dir.glob('**/*').select { |f| File.file?(f) }
+    }.map { |file|
+      ViteAssetFile.new(site, site.source, relative_assets_dir, file)
     }
-    site.static_files.concat(files.map { |file|
-      ViteAssetFile.new(site, site.source, assets_dir, file)
-    })
+    site.static_files.concat(vite_static_files)
   end
 end

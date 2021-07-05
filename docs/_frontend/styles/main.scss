@@ -1,5 +1,5 @@
 :root {
-  --c-bg: #fff;
+  --color-bg: #fff;
 
   --kbd-border: #d1d5da;
 
@@ -15,12 +15,12 @@
 }
 
 html {
-  background-color: var(--c-bg);
+  background-color: var(--color-bg);
   color: var(--fg);
 }
 
 html.dark {
-  --c-bg: theme('colors.black');
+  --color-bg: theme('colors.black');
 
   --kbd-border: theme('colors.gray.600');
 
