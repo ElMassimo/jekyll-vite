@@ -8,4 +8,7 @@
   package = "netlify-plugin-cache"
     [plugins.inputs]
     # Optional (but highly recommended). Defaults to [".cache"].
-    paths = [".jekyll-metadata", ".jekyll-cache", "docs/.jekyll-cache", "/opt/build/repo/docs/.jekyll-cache"]
+    paths = [".jekyll-metadata", ".jekyll-cache"]
+
+[[plugins]]
+  package = "netlify-plugin-debug-cache"
