@@ -2,8 +2,10 @@ name:        Jekyll ➕ Vite.js
 tagline:     Enjoy a modern assets pipeline
 description: Use Vite.js in Jekyll as your assets pipeline
 
-url:         https://maximomussini.com/jekyll-vite
-canonical:   maximomussini.com
+url:         https://jekyll-vite.netlify.app
+canonical:   jekyll-vite.netlify.app
+
+tags: ['ruby', 'jekyll', 'vite.js', 'assets', 'pipeline', 'vite-plugin']
 
 author:
   name:      Máximo Mussini

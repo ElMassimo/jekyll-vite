@@ -1,0 +1,32 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>
+{% if page.title contains site.name %}
+  {{ page.title }}
+{% else %}
+  {{ page.title }} · {{ site.name }}
+{% endif %}
+</title>
+{% if page.excerpt %}{% assign description = page.excerpt | markdownify | strip_html %}{% else %}{% assign description = site.description %}{% endif %}
+<meta name="author" content="{{ site.author.name }}">
+<meta name="description" content="{{ description }}">
+<meta name="keywords" content="{{ site.tags | join: ', ' }}">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="cleartype" content="on">
+<meta name="theme-color" content="#cc0000" />
+
+<link rel="icon" type="image/svg+xml" href="{% vite_asset_path logo.svg %}">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ description }}">
+
+<meta name="twitter:domain" value="{{ site.canonical }}" />
+<meta name="twitter:title" value="{{ page.title }}" />
+<meta name="twitter:description" value="{{ description }}" />
+<meta name="twitter:url" value="{{ site.url }}{{ page.url }}" />
