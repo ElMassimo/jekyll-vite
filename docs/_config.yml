@@ -36,5 +36,10 @@ exclude:
   - config
   - docs
   - exe
+  - node_modules
+  - package.json
+  - shims.d.ts
+  - windi.config.ts
+  - tsconfig.json
   - pnpm-lock.yaml
   - vite.config.ts
