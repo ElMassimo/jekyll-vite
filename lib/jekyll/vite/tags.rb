@@ -80,7 +80,7 @@ end
 # Public: Renders a path to a Vite asset.
 class Jekyll::Vite::AssetPathTag < Jekyll::Vite::Tag
   def render(context)
-    super { vite_asset_path(@file, @params) }
+    super { vite_asset_path(@file, **@params) }
   end
 end
 

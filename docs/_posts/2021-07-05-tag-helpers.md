@@ -46,9 +46,11 @@ Use the following [Liquid] tags to link JavaScript and CSS [entrypoints] managed
 
 For other types of assets, you can use [<kbd>vite_asset_path</kbd>][helpers] and pass the resulting URI to the appropriate tag helper.
 
-```haml
+{% raw %}
+```html
 <img src="{% vite_asset_path logo.svg %}" alt="Logo"/>
 ```
+{% endraw %}
 
 ### Enabling Hot Module Reload 🔥
 
