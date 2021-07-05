@@ -12,14 +12,14 @@
   <br>
 
   <p align="center">
-    <!-- <a href="https://github.com/ElMassimo/jekyll-vite/actions">
+    <a href="https://github.com/ElMassimo/jekyll-vite/actions">
       <img alt="Build Status" src="https://github.com/ElMassimo/jekyll-vite/workflows/build/badge.svg"/>
-    </a> -->
- <!--    <a href="https://codeclimate.com/github/ElMassimo/jekyll-vite">
+    </a>
+    <a href="https://codeclimate.com/github/ElMassimo/jekyll-vite">
       <img alt="Maintainability" src="https://codeclimate.com/github/ElMassimo/jekyll-vite/badges/gpa.svg"/>
     </a>
     <a href="https://codeclimate.com/github/ElMassimo/jekyll-vite">
-      <img alt="Test Coverage" src="https://codeclimate.com/github/ElMassimo/jekyll-vite/badges/coverage.svg"/> -->
+      <img alt="Test Coverage" src="https://codeclimate.com/github/ElMassimo/jekyll-vite/badges/coverage.svg"/>
     </a>
     <a href="https://rubygems.org/gems/jekyll-vite">
       <img alt="Gem Version" src="https://img.shields.io/gem/v/jekyll-vite.svg?colorB=e9573f"/>
