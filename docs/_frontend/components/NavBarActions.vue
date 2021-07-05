@@ -5,7 +5,7 @@ const repoUrl = 'https://github.com/ElMassimo/jekyll-vite'
 
 <template>
   <div class="flex items-center border-b-0 ml-3 space-x-6 ml-4">
-    <ExternalLink :href="viteRubyUrl">Vite Ruby</ExternalLink>
+    <ExternalLink class="<sm:hidden" :href="viteRubyUrl">Vite Ruby</ExternalLink>
     <ExternalLink :href="repoUrl">GitHub</ExternalLink>
     <DarkModeSwitch/>
 
