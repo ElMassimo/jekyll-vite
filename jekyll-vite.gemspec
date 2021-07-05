@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'jekyll', '>= 3', '< 5'
   s.add_dependency 'vite_ruby', '>= 1.2.14', '< 2'
+  s.add_development_dependency 'webrick'
   s.add_development_dependency 'pry-byebug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'

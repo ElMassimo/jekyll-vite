@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rack'
-require 'webrick'
 require 'jekyll/commands/serve/servlet'
 
 # Internal: Extend the default servlet to add a Rack-based proxy in order to
