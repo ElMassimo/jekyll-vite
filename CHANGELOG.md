@@ -1,19 +1,22 @@
-## <small>0.0.3 (2021-07-05)</small>
+## [0.0.3](https://github.com/ElMassimo/jekyll-vite/compare/v0.0.2...v0.0.3) (2021-07-05)
 
-* docs: Add documentation site and add test coverage (#1) ([d88f4bb](https://github.com/ElMassimo/vite_ruby/commit/d88f4bb)), closes [#1](https://github.com/ElMassimo/vite_ruby/issues/1)
-* docs: Avoid adding netlify.toml to the final site ([63514c6](https://github.com/ElMassimo/vite_ruby/commit/63514c6))
-* docs: Avoid dark theme flash ([96aea65](https://github.com/ElMassimo/vite_ruby/commit/96aea65))
-* docs: Debug netlify cache ([ab0806e](https://github.com/ElMassimo/vite_ruby/commit/ab0806e))
-* docs: Deploy to netlify (#2) ([efb0683](https://github.com/ElMassimo/vite_ruby/commit/efb0683)), closes [#2](https://github.com/ElMassimo/vite_ruby/issues/2)
+### Features
+
+- Add support for Jekyll 3.9
+- Add `vite_react_refresh_tag` helper
+
+### Bug Fixes
+
+- Ensure non-proxied requests are served with an HTTP status
+- Ensure Ruby 3.0 support
 
 
-
-## [0.0.2](https://github.com/ElMassimo/vite_ruby/compare/v0.0.1...v0.0.2) (2021-07-03)
+## [0.0.2](https://github.com/ElMassimo/jekyll-vite/compare/v0.0.1...v0.0.2) (2021-07-03)
 
 
 ### Bug Fixes
 
-* Do not serve files with custom status in local development server ([86cf47b](https://github.com/ElMassimo/vite_ruby/commit/86cf47b485520879c7b7e7a79c7245dc0ba92b16))
+* Do not serve files with custom status in local development server ([86cf47b](https://github.com/ElMassimo/jekyll-vite/commit/86cf47b485520879c7b7e7a79c7245dc0ba92b16))
 
 
 
@@ -21,13 +24,13 @@
 
 ### Features
 
-* Build vite assets when generating site and preserve assets correctly ([0b9a138](https://github.com/ElMassimo/vite_ruby/commit/0b9a138393a00c96119e42d5a59ac71539d00912))
-* Ignore Vite dir when the dev server is active, add the last build ([548a47f](https://github.com/ElMassimo/vite_ruby/commit/548a47f8bbb6f22820083d22d4628d445149ba46))
-* Implement a WEBrick proxy servlet for Jekyll ([b5afe03](https://github.com/ElMassimo/vite_ruby/commit/b5afe03b763235c23d9eaf940086d6ddb19399dc))
-* Implement liquid tags to render script and stylesheet tags ([4cbb679](https://github.com/ElMassimo/vite_ruby/commit/4cbb679af2625f31954c56b7cda032c896d7e127))
-* Read mode from JEKYLL_ENV ([acd7181](https://github.com/ElMassimo/vite_ruby/commit/acd7181c507cd1971f056462f240dec0071acf3b))
-* Serve files from the cache when the Vite dev server is down ([d695718](https://github.com/ElMassimo/vite_ruby/commit/d695718b1805211aa8b63c81d140b7212d2347f5))
-* Track dependencies on entrypoints ([5b8c413](https://github.com/ElMassimo/vite_ruby/commit/5b8c41336085e24568750bcbc77192f498488f46))
+* Build vite assets when generating site and preserve assets correctly ([0b9a138](https://github.com/ElMassimo/jekyll-vite/commit/0b9a138393a00c96119e42d5a59ac71539d00912))
+* Ignore Vite dir when the dev server is active, add the last build ([548a47f](https://github.com/ElMassimo/jekyll-vite/commit/548a47f8bbb6f22820083d22d4628d445149ba46))
+* Implement a WEBrick proxy servlet for Jekyll ([b5afe03](https://github.com/ElMassimo/jekyll-vite/commit/b5afe03b763235c23d9eaf940086d6ddb19399dc))
+* Implement liquid tags to render script and stylesheet tags ([4cbb679](https://github.com/ElMassimo/jekyll-vite/commit/4cbb679af2625f31954c56b7cda032c896d7e127))
+* Read mode from JEKYLL_ENV ([acd7181](https://github.com/ElMassimo/jekyll-vite/commit/acd7181c507cd1971f056462f240dec0071acf3b))
+* Serve files from the cache when the Vite dev server is down ([d695718](https://github.com/ElMassimo/jekyll-vite/commit/d695718b1805211aa8b63c81d140b7212d2347f5))
+* Track dependencies on entrypoints ([5b8c413](https://github.com/ElMassimo/jekyll-vite/commit/5b8c41336085e24568750bcbc77192f498488f46))
 
 
 
