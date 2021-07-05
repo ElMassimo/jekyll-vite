@@ -30,3 +30,7 @@
 <meta name="twitter:title" value="{{ page.title }}" />
 <meta name="twitter:description" value="{{ description }}" />
 <meta name="twitter:url" value="{{ site.url }}{{ page.url }}" />
+
+{% if jekyll.environment == "production" %}
+<script src="https://unpkg.com/thesemetrics@latest" async></script>
+{% endif %}

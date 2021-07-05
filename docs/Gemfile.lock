@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    jekyll-vite (0.0.2)
+    jekyll-vite (0.0.3)
       jekyll (>= 3, < 5)
       vite_ruby (>= 1.2.14, < 2)
 
