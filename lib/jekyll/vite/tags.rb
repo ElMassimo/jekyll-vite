@@ -99,6 +99,17 @@ class Jekyll::Vite::ClientTag < Jekyll::Vite::Tag
   end
 end
 
+# Public: Renders a script tag to enable HMR with React Refresh.
+class Jekyll::Vite::ReactRefreshTag < Jekyll::Vite::Tag
+  def render(_context)
+    vite_manifest.react_refresh_preamble&.html_safe
+  end
+
+  def syntax_example
+    "{% #{ @tag_name } %}"
+  end
+end
+
 # Public: Renders a <link> tag for the specified stylesheet.
 class Jekyll::Vite::StylesheetTag < Jekyll::Vite::Tag
   def render(context)
@@ -149,6 +160,7 @@ end
   'vite_javascript_tag' => Jekyll::Vite::JavascriptTag,
   'vite_typescript_tag' => Jekyll::Vite::JavascriptTag,
   'vite_stylesheet_tag' => Jekyll::Vite::StylesheetTag,
+  'vite_react_refresh_tag' => Jekyll::Vite::ReactRefreshTag,
 }.each do |name, tag|
   Liquid::Template.register_tag(name, tag)
 end

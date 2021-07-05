@@ -38,8 +38,9 @@ layout: page
          <div class="divide-y divide-subtle xl:pb-0 xl:col-span-3 xl:row-span-2">
             <div class="prose max-w-none pt-10 pb-8">
               {{ content }}
+              {% include edit_link.html path=page.path %}
             </div>
-            <div class="flex justify-between border-t-1 border-subtle py-4 px-1">
+            <div class="flex justify-between py-4 px-1">
               {% include post_footer.html post=page.previous previous='true' %}
               {% include post_footer.html post=page.next next='true' %}
             </div>

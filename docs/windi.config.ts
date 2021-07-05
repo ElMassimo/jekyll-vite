@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     typography(),
   ],
-  safelist: ['prose', 'm-auto', 'text-left'],
+  safelist: ['prose'],
   theme: {
     extend: {
       colors: {
@@ -27,17 +27,17 @@ export default defineConfig({
             color: 'var(--fg)',
             maxWidth: '65ch',
             a: {
-              color: 'var(--fg-deeper)',
+              textDecoration: 'none',
             },
             b: { color: 'var(--fg-deep)' },
             'a code': {
-              color: 'var(--fg-deep)',
+              color: 'inherit',
             },
             'code::before': {
-              content: '""',
+              content: 'initial',
             },
             'code::after': {
-              content: '""',
+              content: 'initial',
             },
             code: { color: 'var(--fg-deep)' },
             strong: { color: 'var(--fg-deep)' },

@@ -7,3 +7,5 @@ gemfiles/*.lock
 .DS_Store
 *.local
 .rspec_status
+docs/.jekyll-cache
+docs/_site
