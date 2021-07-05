@@ -30,7 +30,7 @@
   </p>
 </h1>
 
-[vite ruby]: https://github.com/ElMassimo/vite-ruby
+[vite ruby]: https://github.com/ElMassimo/vite_ruby
 [website]: https://jekyll-vite.netlify.app/
 [jekyll]: https://jekyllrb.com/
 [configuration reference]: https://vite-ruby.netlify.app/config/
