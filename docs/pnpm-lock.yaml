@@ -5,6 +5,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.2.4
   '@vue/compiler-sfc': ^3.1.4
   '@vueuse/core': ^5.0.3
+  netlify-plugin-cache: ^1.0.3
   sass: ^1.35.1
   vite: ^2.3.8
   vite-plugin-components: ^0.12.0
@@ -22,6 +23,7 @@ dependencies:
 devDependencies:
   '@vitejs/plugin-vue': 1.2.4_@vue+compiler-sfc@3.1.4
   '@vue/compiler-sfc': 3.1.4_vue@3.1.4
+  netlify-plugin-cache: 1.0.3
   sass: 1.35.1
   vite: 2.3.8
   vite-plugin-components: 0.12.0_vite@2.3.8
@@ -528,6 +530,10 @@ packages:
     resolution: {integrity: sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: true
+
+  /netlify-plugin-cache/1.0.3:
+    resolution: {integrity: sha512-CTOwNWrTOP59T6y6unxQNnp1WX702v2R/faR5peSH94ebrYfyY4zT5IsRcIiHKq57jXeyCrhy0GLuTN8ktzuQg==}
     dev: true
 
   /normalize-path/3.0.0:
