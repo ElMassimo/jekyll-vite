@@ -17,7 +17,7 @@ RSpec.configure do |config|
 
   config.include(Module.new {
     def self.included(base)
-      base.let(:config) { ViteRuby.reload_with('VITE_RUBY_ROOT' => SITE_DIR) }
+      base.let(:config) { ViteRuby.reload_with(root: SITE_DIR).config }
       base.let(:root) { config.root }
       base.let(:site) { Jekyll::Site.new(load_jekyll({})) }
       base.let(:dest) { Pathname.new(site.dest) }
