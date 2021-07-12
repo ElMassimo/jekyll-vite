@@ -33,6 +33,9 @@ defaults:
       category: posts
       excerpt_separator: <!--more-->
 
+include:
+  - _headers
+
 exclude:
   - bin
   - config
