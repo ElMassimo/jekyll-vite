@@ -45,8 +45,8 @@ layout: page
               {% include post_footer.html post=page.next next='true' %}
             </div>
          </div>
-         <footer class="text-sm font-medium divide-y divide-subtle xl:col-start-1 xl:row-start-2">
-            <div class="space-y-8 py-8">
+         <footer class="text-sm font-medium xl:divide-y divide-subtle xl:col-start-1 xl:row-start-2">
+            <div class="space-y-8 py-8 <xl:hidden">
               {% include related_post.html post=page.next title="Next Section" %}
               {% include related_post.html post=page.previous title="Previous Section" %}
             </div>

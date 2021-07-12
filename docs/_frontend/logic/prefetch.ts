@@ -17,7 +17,7 @@ export function setupPrefetch () {
   Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href]'))
     .filter(sameDomain)
     .forEach((el) => {
-      ['touchstart', 'mouseover'].forEach((eventName) => {
+      ['touchstart', 'mouseenter'].forEach((eventName) => {
         el.addEventListener(eventName, prefetchHref, { passive: true })
       })
     })
