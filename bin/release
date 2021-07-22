@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cd .. && pnpm release "$@"
+npm run release "$@"

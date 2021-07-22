@@ -1,3 +1,12 @@
+# [1.0.0](https://github.com/ElMassimo/jekyll-vite/compare/v0.0.3...v1.0.0) (2021-07-22)
+
+
+### Features
+
+* Watch layouts and partials by default ([004e8f1](https://github.com/ElMassimo/jekyll-vite/commit/004e8f1318fda3031a7ea8ebbd6b396e742b7642))
+
+
+
 ## [0.0.3](https://github.com/ElMassimo/jekyll-vite/compare/v0.0.2...v0.0.3) (2021-07-05)
 
 ### Features
