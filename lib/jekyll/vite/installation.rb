@@ -20,6 +20,12 @@ module Jekyll::Vite::Installation
   def install_sample_files
     super
     inject_line_after root.join('_config.yml'), 'plugins:', '  - jekyll/vite'
+    inject_line_after root.join('_config.yml'), 'exclude:', <<-YML.chomp("\n")
+  - bin
+  - config
+  - vite.config.ts
+  - tmp
+    YML
     inject_line_before root.join('_layouts/default.html'), '</head>', <<-HTML.chomp("\n")
     {% vite_client_tag %}
     {% vite_javascript_tag application %}
