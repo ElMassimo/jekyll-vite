@@ -45,6 +45,7 @@
 [rollup.js]: https://rollupjs.org
 [esbuild]: https://esbuild.github.io/
 [example]: https://github.com/ElMassimo/jekyll-vite/tree/main/docs
+[installation]: https://jekyll-vite.netlify.app/posts/installation/
 
 Use [Vite.js] in [Jekyll] and enjoy a modern assets pipeline! ⚡️
 
@@ -89,16 +90,7 @@ bundle install
 bundle exec vite install
 ```
 
-Additional installation instructions are available in the [documentation website][website].
-
-## Getting Started 💻
-
-Run <kbd>bin/vite dev</kbd> to start the Vite development server, and then
-restart your Jekyll server with <kbd>bin/jekyll serve</kbd>.
-
-Visit your Jekyll site and you should see a printed console output: `Vite ⚡️ Ruby`.
-
-Check the [documentation website][website] for more information.
+Additional [installation instructions][installation] are available in the [documentation website][installation].
 
 ## Contact ✉️
 

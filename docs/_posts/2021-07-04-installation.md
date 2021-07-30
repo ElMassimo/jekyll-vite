@@ -8,6 +8,7 @@ date: 2021-07-04 12:30 -03:00
 [commands]: /guide/development.html#cli-commands-⌨%EF%B8%8F
 [json config]: /config/#shared-configuration-file-%F0%9F%93%84
 [vite config]: /config/#configuring-vite-%E2%9A%A1
+[custom head]: https://github.com/ElMassimo/jekyll-vite/issues/4#issuecomment-889882282
 
 Add this line to your site's Gemfile:
 
@@ -42,6 +43,9 @@ It will also generate a sample setup in `_layouts/default.html` (if it exists):
 </head>
 ```
 {% endraw %}
+
+> If you are using a theme such as `minima`, you will want to provide a
+[custom head] with these liquid tags.
 
 It also:
 
