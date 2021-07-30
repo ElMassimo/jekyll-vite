@@ -19,8 +19,8 @@ module Jekyll::Vite::Installation
   # Override: Inject the vite client and sample script to the default HTML template.
   def install_sample_files
     super
-    inject_line_after root.join('_config.yml'), 'plugins:', '  - jekyll/vite'
-    inject_line_after root.join('_config.yml'), 'exclude:', <<-YML.chomp("\n")
+    inject_line_after_last root.join('_config.yml'), 'plugins:', '  - jekyll/vite'
+    inject_line_after_last root.join('_config.yml'), 'exclude:', <<-YML.chomp("\n")
   - bin
   - config
   - vite.config.ts
