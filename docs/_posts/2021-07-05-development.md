@@ -40,7 +40,7 @@ used to configure the `host` and `port`, as well as [other options][dev options]
 
 Then, restart your Jekyll server with <kbd>bin/jekyll serve</kbd>.
 
-Visit any page and you should see a printed console output: `Vite ⚡️ Ruby`.
+Visit your Jekyll site and you should see a printed console output: `Vite ⚡️ Ruby`.
 
 <!--more-->
 

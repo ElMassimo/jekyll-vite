@@ -96,7 +96,7 @@ Additional installation instructions are available in the [documentation website
 Run <kbd>bin/vite dev</kbd> to start the Vite development server, and then
 restart your Jekyll server with <kbd>bin/jekyll serve</kbd>.
 
-Visit any page and you should see a printed console output: `Vite ⚡️ Ruby`.
+Visit your Jekyll site and you should see a printed console output: `Vite ⚡️ Ruby`.
 
 Check the [documentation website][website] for more information.
 
