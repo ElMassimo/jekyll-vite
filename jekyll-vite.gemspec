@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new('>= 2.4')
 
   s.add_dependency 'jekyll', '>= 3', '< 5'
-  s.add_dependency 'vite_ruby', '>= 1.2.14', '< 2'
+  s.add_dependency 'vite_ruby', '~> 2.0.0.beta.3'
   s.add_development_dependency 'pry-byebug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
