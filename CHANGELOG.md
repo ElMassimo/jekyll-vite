@@ -1,3 +1,7 @@
+# [3.0.0](https://github.com/ElMassimo/jekyll-vite/compare/v1.0.0...v3.0.0) (2021-08-16)
+
+See ElMassimo/vite_ruby/pull/116 for features and breaking changes.
+
 # [1.0.0](https://github.com/ElMassimo/jekyll-vite/compare/v0.0.3...v1.0.0) (2021-07-22)
 
 
