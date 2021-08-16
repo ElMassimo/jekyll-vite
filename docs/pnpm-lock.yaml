@@ -10,7 +10,7 @@ specifiers:
   vite: ^2.5.0
   vite-plugin-components: ^0.12.0
   vite-plugin-icons: ^0.6.4
-  vite-plugin-ruby: ^3.0.0-beta.4
+  vite-plugin-ruby: ^3.0.0
   vite-plugin-windicss: ^1.2.0
   vue: ^3.1.4
   windicss: ^3.1.4
@@ -28,7 +28,7 @@ devDependencies:
   vite: 2.5.0
   vite-plugin-components: 0.12.0_vite@2.5.0
   vite-plugin-icons: 0.6.4_6e296531fbf664a5eb913b327fa48fa1
-  vite-plugin-ruby: 3.0.0-beta.4_vite@2.5.0
+  vite-plugin-ruby: 3.0.0_vite@2.5.0
   vite-plugin-windicss: 1.2.0_vite@2.5.0
   windicss: 3.1.4
 
@@ -776,8 +776,8 @@ packages:
       vue-template-es2015-compiler: 1.9.1
     dev: true
 
-  /vite-plugin-ruby/3.0.0-beta.4_vite@2.5.0:
-    resolution: {integrity: sha512-cus0VokUX+N8JNqO7bQ4eyhaiE+39CbeW94Pe/RYYGs6l1Cdsr3Sg34TKVzzsCp7nspv8k0NEX39G5c7rBKsGw==}
+  /vite-plugin-ruby/3.0.0_vite@2.5.0:
+    resolution: {integrity: sha512-Jrb+H6n72el+uJQM7o6THK4SpBId4719U7r/2+3burYR4WCUAmlUhZaYSP1Xnb8kc+JU2ojkvjnMZS07u0dM5A==}
     peerDependencies:
       vite: '>=2.5.0'
     dependencies:
