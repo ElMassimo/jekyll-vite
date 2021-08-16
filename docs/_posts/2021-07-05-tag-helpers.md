@@ -48,7 +48,7 @@ For other types of assets, you can use [<kbd>vite_asset_path</kbd>][helpers] and
 
 {% raw %}
 ```html
-<img src="{% vite_asset_path logo.svg %}" alt="Logo"/>
+<img src="{% vite_asset_path images/logo.svg %}" alt="Logo"/>
 ```
 {% endraw %}
 
