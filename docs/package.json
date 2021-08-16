@@ -11,10 +11,10 @@
     "@vue/compiler-sfc": "^3.1.4",
     "netlify-plugin-cache": "^1.0.3",
     "sass": "^1.35.1",
-    "vite": "^2.3.8",
+    "vite": "^2.5.0",
     "vite-plugin-components": "^0.12.0",
     "vite-plugin-icons": "^0.6.4",
-    "vite-plugin-ruby": "^2.0.4",
+    "vite-plugin-ruby": "^3.0.0-beta.4",
     "vite-plugin-windicss": "^1.2.0",
     "windicss": "^3.1.4"
   }
