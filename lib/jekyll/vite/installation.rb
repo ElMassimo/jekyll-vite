@@ -24,6 +24,7 @@ module Jekyll::Vite::Installation
   def install_sample_files
     super
     inject_line_after_last root.join('_config.yml'), 'plugins:', '  - jekyll/vite'
+    replace_first_line root.join('_config.yml'), '# exclude:', 'exclude:'
     inject_line_after_last root.join('_config.yml'), 'exclude:', <<-YML.chomp("\n")
   - bin
   - config
@@ -31,7 +32,15 @@ module Jekyll::Vite::Installation
   - tmp
   - Procfile.dev
     YML
-    inject_line_before root.join('_layouts/default.html'), '</head>', <<-HTML.chomp("\n")
+    if root.join('Gemfile').read.include?('minima')
+      append root.join('_includes/custom-head.html'), helper_tags
+    else
+      inject_line_before root.join('_layouts/default.html'), '</head>', helper_tags
+    end
+  end
+
+  def helper_tags
+    <<-HTML.chomp("\n")
     {% vite_client_tag %}
     {% vite_javascript_tag application %}
     HTML
