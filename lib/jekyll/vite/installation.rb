@@ -10,6 +10,10 @@ module Jekyll::Vite::Installation
   # Override: Setup a typical Jekyll site to use Vite.
   def setup_app_files
     cp JEKYLL_TEMPLATES.join('config/jekyll-vite.json'), config.config_path
+    append root.join('Procfile.dev'), 'jekyll: bin/jekyll-vite wait && bundle exec jekyll serve --livereload'
+    cp JEKYLL_TEMPLATES.join('exe/dev'), root.join('exe/dev')
+    `bundle binstub jekyll-vite --path #{ root.join('bin') }`
+    `bundle config --delete bin`
     append root.join('Rakefile'), <<~RAKE
       require 'jekyll/vite'
       ViteRuby.install_tasks
@@ -25,6 +29,7 @@ module Jekyll::Vite::Installation
   - config
   - vite.config.ts
   - tmp
+  - Procfile.dev
     YML
     inject_line_before root.join('_layouts/default.html'), '</head>', <<-HTML.chomp("\n")
     {% vite_client_tag %}
