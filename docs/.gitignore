@@ -1,0 +1,6 @@
+.bundle
+log
+tmp
+.rspec_status
+.jekyll-cache
+_site

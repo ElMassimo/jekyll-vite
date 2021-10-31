@@ -31,18 +31,18 @@ date: 2021-07-05 09:31 -03:00
 [entrypointsDir]: https://vite-ruby.netlify.app/config/#entrypointsdir
 [watchAdditionalPaths]: https://vite-ruby.netlify.app/config/#watchadditionalpaths
 [aliased]: https://github.com/rollup/plugins/tree/master/packages/alias
+[installation]: /posts/installation/
 
-
-Run <kbd>bin/vite dev</kbd> to start the Vite development server.
+Run `exe/dev` (added during [installation]) to start both Vite and Jekyll for development.
 
 It will use your [`config/vite.json`][json config] configuration, which can be
 used to configure the `host` and `port`, as well as [other options][dev options].
 
-Then, restart your Jekyll server with <kbd>bin/jekyll serve</kbd>.
-
 Visit your Jekyll site and you should see a printed console output: `Vite ⚡️ Ruby`.
 
 <!--more-->
+
+Alternatively, run <kbd>bin/vite dev</kbd> to start the Vite development server, and restart your Jekyll server with <kbd>bin/jekyll serve</kbd> once Vite is running.
 
 ## Entrypoints ⤵️
 

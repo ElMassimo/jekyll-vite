@@ -49,3 +49,4 @@ exclude:
   - tsconfig.json
   - pnpm-lock.yaml
   - vite.config.ts
+  - Procfile.dev
