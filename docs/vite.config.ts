@@ -1,23 +1,26 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import VuePlugin from '@vitejs/plugin-vue'
-import RubyPlugin from 'vite-plugin-ruby'
-import WindiCSS from 'vite-plugin-windicss'
-import IconsPlugin, { ViteIconsResolver } from 'vite-plugin-icons'
-import ComponentsPlugin from 'vite-plugin-components'
+import vue from '@vitejs/plugin-vue'
+import ruby from 'vite-plugin-ruby'
+import windicss from 'vite-plugin-windicss'
+import icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
   plugins: [
-    VuePlugin(),
-    IconsPlugin(),
-    RubyPlugin(),
-    ComponentsPlugin({
-      dirs: [resolve(__dirname, '_frontend/components')],
-      customComponentResolvers: ViteIconsResolver({
-        componentPrefix: '',
-      }),
+    vue(),
+    icons({
+      autoInstall: true,
     }),
-    WindiCSS({
+    ruby(),
+    components({
+      dirs: [resolve(__dirname, '_frontend/components')],
+      resolvers: [
+        IconsResolver({ componentPrefix: '' }),
+      ],
+    }),
+    windicss({
       root: __dirname,
       configFiles: [resolve(__dirname, 'windi.config.ts')],
       scan: {
