@@ -1,3 +1,7 @@
+## [3.0.3](https://github.com/ElMassimo/jekyll-vite/compare/v3.0.0...v3.0.3) (2021-08-16
+
+* fix: Liquid Exception: missing keyword: :ssr (#9) ([11c10c3](https://github.com/ElMassimo/jekyll-vite/commit/11c10c3)), closes [#9](https://github.com/ElMassimo/jekyll-vite/issues/9)
+
 # [3.0.0](https://github.com/ElMassimo/jekyll-vite/compare/v1.0.0...v3.0.0) (2021-08-16)
 
 See ElMassimo/vite_ruby/pull/116 for features and breaking changes.
