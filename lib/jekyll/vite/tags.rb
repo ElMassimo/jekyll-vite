@@ -73,7 +73,7 @@ protected
   # Internal: Adding the last build metadata file as a dependency ensures
   # all pages using Vite assets are regenerated if a Vite build is triggered.
   def last_build_metadata_path
-    ViteRuby.instance.builder.send(:last_build_path)
+    ViteRuby.instance.builder.send(:last_build_path, ssr: false)
   end
 end
 
