@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'jekyll', '>= 3', '< 5'
   s.add_dependency 'vite_ruby', '~> 3.2'
+  s.add_dependency 'rackup', '~> 0.2'
   s.add_development_dependency 'pry-byebug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
