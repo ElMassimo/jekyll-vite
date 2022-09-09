@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rack'
+require 'rackup'
 require 'jekyll/commands/serve/servlet'
 
 # Internal: Extend the default servlet to add a Rack-based proxy in order to
@@ -45,7 +46,7 @@ private
       proxy = ViteRuby::DevServerProxy.new(app)
 
       # Return a servlet compliant with WEBrick.
-      Rack::Handler::WEBrick.new(@server, proxy)
+      Rackup::Handler::WEBrick.new(@server, proxy)
     end
   end
 end
