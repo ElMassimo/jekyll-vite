@@ -65,7 +65,7 @@ assets are not fingerprinted which is problematic for caching.
 
 [Vite.js] has an extensible architecture and is built on top of [rollup.js], and as
 a result there is an active ecosystem of plugins and tooling available. In addition,
-it's [no bundling] design provides a very fluid authoring experience—changes to
+its [no bundling] design provides a very fluid authoring experience—changes to
 your assets are reflected instantly in your browser.
 
 ## Documentation 📖
