@@ -24,9 +24,9 @@ RSpec.describe Jekyll::Vite::Proxy do
     allow(ViteRuby.instance.logger).to receive(:debug)
     site.process # build Vite assets
 
-    get('/vite-dev/manifest.json') do |response|
+    get('/vite-dev/.vite/manifest.json') do |response|
       expect(response.code).to eq('200')
-      expect(response.body).to eq(output_dir.join('manifest.json').read)
+      expect(response.body).to eq(output_dir.join('.vite/manifest.json').read)
     end
 
     # Should not proxy requests for content.
@@ -40,14 +40,14 @@ RSpec.describe Jekyll::Vite::Proxy do
     # Stub request to the Vite dev server.
     allow_any_instance_of(Rack::Proxy).to receive(:perform_request) { |_, env|
       expect(env['HTTP_X_FORWARDED_SERVER']).to eq ViteRuby.config.host_with_port
-      [200, {}, [output_dir.join('manifest.json').read]]
+      [200, {}, [output_dir.join('.vite/manifest.json').read]]
     }
     # Stub the uptime check to the Vite dev server.
     allow(ViteRuby.instance).to receive(:dev_server_running?).and_return(true)
 
-    get('/vite-dev/manifest.json') do |response|
+    get('/vite-dev/.vite/manifest.json') do |response|
       expect(response.code).to eq('200')
-      expect(response.body.strip).to eq(output_dir.join('manifest.json').read)
+      expect(response.body.strip).to eq(output_dir.join('.vite/manifest.json').read)
     end
   end
 
