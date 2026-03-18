@@ -8,7 +8,7 @@ SimpleCov.start {
 }
 
 require 'jekyll/vite'
-require 'pry-byebug'
+require 'debug'
 
 Jekyll.logger.log_level = ENV['JEKYLL_LOG_LEVEL'] || :error
 

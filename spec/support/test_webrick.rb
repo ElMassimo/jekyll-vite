@@ -33,7 +33,8 @@ module_function
       ServerType: Thread,
       Logger: WEBrick::Log.new(logger),
       AccessLog: [[logger, '']],
-      JekyllOptions: {}
+      JekyllOptions: {},
+      MimeTypesCharset: {}
     }
   end
 

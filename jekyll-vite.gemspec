@@ -19,12 +19,12 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new('>= 2.4')
 
   s.add_dependency 'jekyll', '>= 3', '< 5'
-  s.add_dependency 'rackup', '~> 0.2'
+  s.add_dependency 'rackup', '>= 0.2'
   s.add_dependency 'vite_ruby', '~> 3.2'
-  s.add_development_dependency 'pry-byebug'
+  s.add_development_dependency 'debug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
-  s.add_development_dependency 'simplecov', '< 0.18'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'webrick'
 
   s.files = Dir.glob('{lib,exe,templates}/**/*') + %w[README.md CHANGELOG.md LICENSE.txt]
